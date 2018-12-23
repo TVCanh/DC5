@@ -66,9 +66,7 @@ public class AuthRestAPIs {
 		User user = userRepository.findByUsername(loginRequest.getUsername())
 				.orElseThrow(() -> new UsernameNotFoundException(
 						"User Not Found with -> username or email : " + loginRequest.getUsername()));
-
-		if (user.isEnable() == true) {
-
+		if (user.getEnabled() == true) {
 			Authentication authentication = authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
@@ -76,10 +74,8 @@ public class AuthRestAPIs {
 
 			String jwt = jwtProvider.generateJwtToken(authentication);
 			return ResponseEntity.ok(new JwtResponse(jwt));
-		}
-
-		else {
-			return new ResponseEntity<String>("Fail -> Username is already taken!", HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<String>("Fail -> Account has not been activated!", HttpStatus.BAD_REQUEST);
 		}
 	}
 
