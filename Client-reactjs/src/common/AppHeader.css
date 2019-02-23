@@ -1,0 +1,177 @@
+.app-title {
+  float: left;
+}
+
+.app-title a {
+  text-decoration: none;
+  line-height: 64px;
+  font-size: 21px;
+  display: inline-block;
+  margin-right: 100px;
+  color: black ;
+}
+
+.app-title a:hover {
+  text-decoration: none;
+  margin-right: 100px;
+  margin-top:0px !important;
+}
+
+.app-header {
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 2px 8px #f0f1f2;
+  z-index: 10;
+  padding: 0;
+  background-color:white;
+  list-style-type: none;
+}
+.app-header :hover {
+  color: red;
+ 
+
+}
+
+.app-menu :hover{
+  color:red;
+
+}
+/* menu left */
+.app-menu {
+  float: left;
+  font: icon
+}
+
+.app-menu > li {
+  padding: 0 20px;
+  text-decoration: none;
+  float: left;
+  list-style-type: none;
+  border-radius: 50px
+}
+
+.app-menu > li > a {
+  padding: 0 20px;
+  margin: 0 -20px;
+  text-decoration: none;
+  list-style-type: none;
+  color: black ;
+  font-size: 20px;
+  font-weight: lighter;
+  border-radius: 50px;
+  
+}
+
+.app-menu > li > a > i {
+  margin-right: 0 !important;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+
+.profile-dropdown-menu {
+  margin-right: 320px;
+  min-width: 180px;
+  float: left;
+  list-style-type: none;
+}
+
+.profile-menu .user-full-name-info {
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.85);
+}
+
+.profile-menu .username-info {
+  font-size: 14px;
+  color: rgba(0,0,0,0.65);
+}
+
+.dropdown-item {
+  padding: 10px 12px;
+  float: left;
+}
+
+.dropdown-item a {
+  padding: 10px 12px;
+  margin: -10px -12px;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.nav-icon {
+  font-size: 20px;
+  
+}
+.mr-20{
+  margin-right: 500px;
+}
+.poll-icon {
+  margin-top: -4px;
+}
+
+@media (max-width: 768px) {
+.app-title a {
+  font-size: 20px;
+}
+
+.app-menu > li {
+  padding: 0 15px;
+   text-decoration: none;
+   list-style-type: none;
+}
+
+.app-menu > li > a {
+  padding: 0 15px;
+  margin: 0 -15px;
+  text-decoration: none;
+  list-style-type: none;
+}
+.home{
+  margin-right: 100px;
+}
+}  
+
+/* @charset "utf-8";
+body {
+  font-family: 'Open Sans', 'sans-serif';
+} */
+
+.navbar-default .navbar-nav > li > a{color:black;}
+.nav > li > a{margin:15px; font-size: 17px; color:black}
+.nav .open > a, .nav .open > a:hover, 
+.nav .open > a:focus,
+.nav > li > a:hover, .nav > li > a:focus{background-color:transparent !important;}
+
+    
+.navbar-toggle{margin-top:20px; background:red!important;}
+.dropdown-menu{background:white !important;}
+.dropdown-menu > li > a > i{
+  color: black;
+  background:blue !important;}
+
+  .dropdown-menu > li{
+    color: black;
+    background:blue !important;}
+.navbar-login
+{
+    width: 350px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}
+.ant-menu-item{
+  color: aqua;
+  list-style-type:none
+}

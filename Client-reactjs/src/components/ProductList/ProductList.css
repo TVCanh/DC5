@@ -1,0 +1,24 @@
+.mt-20{
+	margin-top:20px;
+
+}
+
+.mr-10{
+	margin-right: 10px;
+}
+
+.mt-100{
+	margin-top: 100px;
+}
+
+.thead{
+    background-color: rgb(143, 138, 138);  
+        cursor: pointer;
+    
+  }
+  .thead > tr :hover{
+    color: aquamarine;
+  }
+  .tbody{
+    background-color: rgb(143, 138, 138);  
+  }

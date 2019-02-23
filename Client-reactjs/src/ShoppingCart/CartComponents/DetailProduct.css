@@ -1,0 +1,11 @@
+.detail{
+    position: relative;
+    
+    font-size: 1.5em ;
+}
+.mr-0{
+    margin-right: -100px;
+}
+.ml-00{
+    margin-left: -0px;
+}

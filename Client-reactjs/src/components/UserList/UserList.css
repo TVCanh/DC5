@@ -1,0 +1,12 @@
+
+  .thead{
+    background-color: rgb(143, 138, 138);  
+        cursor: pointer;
+    
+  }
+  .thead > tr :hover{
+    color: aquamarine;
+  }
+  .tbody{
+    background-color: rgb(143, 138, 138);  
+  }

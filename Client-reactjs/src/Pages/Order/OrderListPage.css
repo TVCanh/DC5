@@ -1,0 +1,39 @@
+#page-numbers {
+    list-style: none;
+    display: flex;
+    font-size: 1.5em;
+    /* top: 95%;
+    left: 3%;
+    position: fixed; */
+  }
+  
+  #page-numbers > li {
+    margin-right: 0.3em;
+    color: blue;
+    user-select: none;
+    cursor: pointer;
+  }
+  .control {
+    font-size: 1.5rem;
+    margin-left: 100px;
+    width: 200px;
+  }
+
+  #page-products-numbers {
+    list-style: none;
+    display: flex;
+    font-size: 1.5em;
+    top: 70%;
+    left: 3%;
+    
+  }
+
+  #page-products-numbers > li {
+    margin-right: 0.3em;
+    color: blue;
+    user-select: none;
+    cursor: pointer;
+  }
+  .ml{
+    margin-left: 0px;
+  }
