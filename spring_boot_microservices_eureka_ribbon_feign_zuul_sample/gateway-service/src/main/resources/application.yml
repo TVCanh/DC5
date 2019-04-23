@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: gateway-service
+
+info:
+  component: Gateway Server
+
+management:
+  endpoint:
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+
+zuul:
+  prefix: /
+  routes: 
+    user-service:
+      path: /users/**
+      serviceId: user-service
+    service-1:
+      path: /service-1/**
+      serviceId: service-1
+    springboot-train:
+      path: /springboot/**
+      serviceId: springboot-trainning
+
+ribbon:
+  eureka:
+    enabled: true
+
+eureka:
+  client:
+    region: default
+    healthcheck:
+      enabled: true
+    registryFetchIntervalSeconds: 10
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${eureka.port:8761}/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+    
+server:
+  port: 8888
