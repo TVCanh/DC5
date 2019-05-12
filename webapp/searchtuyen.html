@@ -1,0 +1,164 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #danhsachtuyenbus {
+            position: relative;
+            width: 99%;
+            margin: 0 1% 1% 1%;
+        }
+
+        #danhsachtuyenbus .dstuyenbus {
+            position: relative;
+            float: left;
+            width: 32%;
+            padding: 5px;
+            margin: 5px;
+            display: inline-block;
+            text-align: left;
+            text-decoration: none;
+            font-size: 14px;
+            vertical-align: middle;
+            color: #FFFFFF !important;
+            background: none repeat scroll 0 0 #34B67A;
+            border: 1px solid #34B67A;
+        }
+
+        #danhsachtuyenbus .dstuyenbus:hover {
+            text-decoration: none !important;
+            color: #121212 !important;
+            border: 1px solid #34B67A;
+            background: none repeat scroll 0 0 #ffffff;
+        }
+
+        #danhsachtuyenbus .dstuyenbus:hover .icon {
+            color: #000000;
+            background-color: #FFFFFF;
+        }
+
+        #danhsachtuyenbus table tr {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+        }
+
+        #danhsachtuyenbus table td {
+            padding-left: 5px;
+        }
+
+        #danhsachtuyenbus a {
+            color: #5e9700;
+            text-decoration: none;
+        }
+
+        #danhsachtuyenbus .icon {
+            white-space: nowrap;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            height: 30px;
+            min-width: 30px;
+            line-height: 30px;
+            margin: 0px;
+            padding: 1px;
+            vertical-align: middle;
+            color: #ffffff;
+            border: solid 1px #dadada;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+        }
+
+        #formSearch {
+            margin-top: 50px;
+            width: 50%;
+            height: 100px;
+            margin-left: 20%;
+        }
+
+        #formSearch form-group {
+            width: 20%;
+        }
+
+        #formSearch .btn {
+            width: 20%;
+            margin-left: 40%;
+            margin-top: 0;
+        }
+
+        table th {
+            background-color: #34B67A;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<script>
+    function getSearchtuyen() {
+        noidungSearch = $('#search').val();
+        // var noidungSearch = getUrlParameter('search');
+        console.log(noidungSearch);
+
+        window.location.href = 'http://127.0.0.1/webMap/searchtuyen.html?search=' + noidungSearch;
+    }
+</script>
+
+<body>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div id='formSearch'>
+            <form>
+                <div class="form-group">
+                    <input class="form-control" id="search" placeholder="Nhập tuyến buýt" autocomplete="off">
+                    <button type="button" class="btn btn-primary" onclick="getSearchtuyen();">Tìm</button>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <h1 align="center">Danh sách tuyến bus</h1>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel-body">
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead">
+                            <tr>
+                                <th align="center">Mã số tuyến</th>
+                                <th align="center">Tên tuyến</th>
+                            </tr>
+                        </thead>
+                        <tbody id="danhsachtuyen">
+
+                        </tbody>
+                    </table>
+                </div>
+                <a href="dstuyenbus.html" class="btn btn-primary">Trở lại</a>
+                <a href="index.html" class="btn btn-info">Trang chủ</a>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("Start Ajax");
+            //noidungSearch=$('#search').val();
+            var noidungSearch = getUrlParameter('search');
+            console.log(noidungSearch);
+            $.ajax({
+                url: "http://localhost/webmap/php/content/function_ajax/searchtuyen.php?search=" + noidungSearch,
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    $("#danhsachtuyen").html(data);
+                }
+            });
+        });
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+    </script>
+</body>
+
+</html>

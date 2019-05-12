@@ -1,0 +1,469 @@
+<html>
+
+<head>
+    <title>Thông tin chi tiết tuyến</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link
+        href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/forum.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/indexUser.css" media="screen">
+    <link rel="stylesheet" href="lib/leaflet/leaflet.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/loadTime.js"></script>
+    <script src="js/leaflet.js"></script>
+    <style type="text/css">
+        #danhsachtuyenbus {
+            position: relative;
+            width: 99%;
+            margin: 0 1% 1% 1%;
+        }
+
+        #danhsachtuyenbus .dstuyenbus {
+            position: relative;
+            float: left;
+            width: 32%;
+            padding: 5px;
+            margin: 5px;
+            display: inline-block;
+            text-align: left;
+            text-decoration: none;
+            font-size: 14px;
+            vertical-align: middle;
+            color: #FFFFFF !important;
+            background: none repeat scroll 0 0 #34B67A;
+            border: 1px solid #34B67A;
+        }
+
+        #danhsachtuyenbus .dstuyenbus:hover {
+            text-decoration: none !important;
+            color: #121212 !important;
+            border: 1px solid #34B67A;
+            background: none repeat scroll 0 0 #ffffff;
+        }
+
+        #danhsachtuyenbus .dstuyenbus:hover .icon {
+            color: #000000;
+            background-color: #FFFFFF;
+        }
+
+        #danhsachtuyenbus table tr {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+        }
+
+        #danhsachtuyenbus table td {
+            padding-left: 5px;
+        }
+
+        #danhsachtuyenbus a {
+            color: #5e9700;
+            text-decoration: none;
+        }
+
+        #danhsachtuyenbus .icon {
+            white-space: nowrap;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            height: 30px;
+            min-width: 30px;
+            line-height: 30px;
+            margin: 0px;
+            padding: 1px;
+            vertical-align: middle;
+            color: #ffffff;
+            border: solid 1px #dadada;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+        }
+
+        #formSearch {
+            margin-top: 50px;
+            width: 50%;
+            height: 100px;
+            margin-left: 20%;
+        }
+
+        #formSearch form-group {
+            width: 20%;
+        }
+
+        #formSearch .btn {
+            width: 20%;
+            margin-left: 40%;
+            margin-top: 0;
+        }
+
+        #thongtintuyenbus {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: auto;
+        }
+
+        #thongtintuyenbus table tr:hover {
+            color: #000;
+        }
+
+        .row #box {
+            position: relative;
+            width: 100%;
+            float: left;
+            margin-left: 1%;
+            min-height: 600px;
+        }
+
+        .row #box #chitiettuyen {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            width: 30%;
+            height: 500px;
+            overflow: scroll;
+            background-color: #DDD;
+            z-index: 2;
+        }
+
+        .row #box #chitiettuyen {
+            line-height: 1.3;
+        }
+
+        .row #box #chitiettuyen .rowStop {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+        }
+
+        #chitiettuyen .dstbus {
+            position: relative;
+            float: left;
+            width: 100%;
+            margin: 1%;
+            font-size: 14px;
+            color: #FFF;
+            padding: 5px;
+            background-color: #34B67A;
+            border: 1px solid #34B67A;
+            text-align: inherit;
+        }
+
+        #chitiettuyen a {
+            text-decoration: none;
+        }
+
+        #chitiettuyen a:hover {
+            text-decoration: none;
+            color: #000;
+            background-color: #FFF;
+        }
+
+        .row #box #chitiettuyen table {
+            width: 100%;
+        }
+
+        .row #box #chitiettuyen table tr {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+        }
+
+        .row #box #chitiettuyen table td {
+            text-align: inherit;
+            font-size: 14px;
+        }
+
+        .row #box #chitiettuyen .orderNo {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            vertical-align: middle;
+            text-align: center;
+            color: #fff;
+            background-color: #34B67A;
+        }
+
+        .row #box #mapid {
+            position: absolute;
+            top: 35px;
+            right: 0;
+            width: 70%;
+            height: 500px;
+            z-index: 1;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="row">
+        <div id="content">
+            <div class="container">
+                <h1 align="center">Chi tiết tuyến bus</h1>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="panel-body">
+                        <div id="chitiettuyen1"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="box">
+                <div id='showListBus'
+                    style="width: 40px; height: 40px;position: absolute;z-index: 3;top:0;left:0; margin-left:2px; opacity:0.8;">
+                    <img src="icon/clickHere.png" height="35px" onclick='closeListBus()' />
+                </div>
+                <div id="chitiettuyen" style="width:30%"></div>
+                <div id="mapid" style="width: 70%"></div>
+            </div>
+        </div>
+        <a href="dstuyenbus.html" class="btn btn-primary" style="margin-left:20px">Trở lại</a>
+        <a href="index.html" class="btn btn-danger" style="margin-left:20px">Trang chủ</a>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script>
+        $(document).ready(function () {
+            var id = getUrlParameter('id');
+            console.log(id);
+            $.ajax({
+                url: "http://localhost/WebMap/php/content/function_ajax/chitiettuyen.php?id=" + id,
+                type: 'GET',
+                success: function (data) {
+                    //console.log(data);
+                    $("#chitiettuyen1").html(data);
+                }
+            });
+            console.log("ajax2");
+            $.ajax({
+                url: "http://localhost/WebMap/php/content/function_ajax/lotrinh.php?id=" + id,
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    $("#chitiettuyen").html(data);
+                }
+            });
+
+        });
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+    </script>
+    <script>
+        var map = L.map('mapid').setView([10.775375, 106.705737], 14);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attributionControl: false,
+            prefix: '',
+        }).addTo(map);
+
+        // -------------------------ham cap nhat icon-------------------------
+        // input tên icon cần sét, output Icon
+        function getIcon(name) {
+            // khai báo icon 
+            var tramIcon = L.icon({
+                iconUrl: 'icon/tramIcon.png',
+                number: 12,
+                iconSize: [30, 30], // size of the icon
+                shadowSize: [10, 60], // size of the shadow
+                iconAnchor: [15, 30], // point of the icon which will correspond to marker's location
+                shadowAnchor: [1, 62],  // the same for the shadow
+                popupAnchor: [0, -30] // point from which the popup should open relative to the iconAnchor
+            });
+            var nodeIcon = L.icon({
+                iconUrl: 'icon/nodeIcon.png',
+                iconSize: [15, 15], // size of the icon
+                shadowSize: [60, 60], // size of the shadow
+                iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+                shadowAnchor: [4, 20],  // the same for the shadow
+                popupAnchor: [0, -15] // point from which the popup should open relative to the iconAnchor
+            });
+            var Icon = nodeIcon;
+            switch (name) {
+                case 'tram':
+                    Icon = tramIcon;
+                    break;
+                case 'node':
+                    Icon = nodeIcon;
+                    break;
+                default:
+                    Icon = nodeIcon;
+                    break;
+
+            }
+            return Icon;
+        }
+        function newTram(lat, lon, name, value) {
+            var geojsonFeature = {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [lat, lon]
+                }
+            }
+            var marker;
+            L.geoJson(geojsonFeature, {
+                pointToLayer: function (feature, latlng) {
+
+                    marker = L.marker([lat, lon], {
+
+                        title: name,
+                        alt: name,
+                        riseOnHover: true,
+                        draggable: false,
+
+                    }).bindPopup("<input type='button' value='Delete this marker' class='marker-delete-button'/>");
+
+                    marker.on("popupopen", onPopupOpen);
+                    if (value == 0) marker.setIcon(getIcon('tram'));
+                    if (value == 1) marker.setIcon(getIcon('node'));
+
+                    return marker;
+                }
+            }).addTo(map);
+            tuychon = 1;
+
+            map.setView([lat, lon], 14);
+
+        }
+
+        function updateline() {
+            for (i in map._layers) {
+                if (map._layers[i]._path != undefined) {
+                    try {
+                        map.removeLayer(map._layers[i]);
+                    }
+                    catch (e) {
+                        console.log("problem with " + e + map._layers[i]);
+                    }
+                }
+
+            }
+            veduong();
+        }
+        // Function to handle delete as well as other events on marker popup open
+        function onPopupOpen() {
+            var tempMarker = this;
+            $(".marker-delete-button:visible").click(function () {
+                map.removeLayer(tempMarker);
+                updateline();
+            });
+
+        }
+
+        function ve_duong_all() {
+
+
+            $.each(map._layers, function (ml) {
+                if (map._layers[ml].feature) {
+                    allMarkers.push(this._latlng);
+                }
+            });
+
+
+        }
+        // getting all the markers at once
+        function veduong() {
+
+            var allMarkersObjArray = [];//new Array();
+            $.each(map._layers, function (ml) {
+                //console.log(map._layers)
+                if (map._layers[ml].feature) {
+
+                    allMarkersObjArray.push(this);
+
+
+                }
+            });
+            var pon = [];
+            i = 0;
+            for (i = 0; i < allMarkersObjArray.length; i++) {
+                //console.log(allMarkersObjArray[i]);
+                pon.push(allMarkersObjArray[i]._latlng);
+            }
+            polyline = L.polyline(pon, { color: '#00ff00' }).addTo(map);
+            // if(allMarkersObjArray[0]!=null&&allMarkersObjArray[1]!=null)console.log(distance(allMarkersObjArray[0]._latlng,allMarkersObjArray[i-1]._latlng));
+        }
+        var dsMaker = [];
+        function getNode() {
+            var id = getUrlParameter('id');
+            console.log(id);
+            mst = $('.tieude').attr('name');
+            var dataString = '&mst=' + id;
+            $.ajax
+                ({
+                    type: "POST",
+                    url: "http://localhost/webmap/php/content/function_ajax/get_node.php",
+                    data: dataString,
+                    success: function (resultData) {
+                        // alert(resultData);
+                        $ds = resultData.split(';');
+                        for (i = 0; i < $ds.length - 1; i++) {
+                            //console.log($ds[i]);
+                            if ($ds[i] == "null" || $ds[i] == null) continue;
+                            tram = jQuery.parseJSON($ds[i]);
+                            newTram(tram.lat, tram.lon, tram.ten_tram, 0);
+
+                            //console.log(tram.danhsachnode);
+                            if (tram.danhsachnode == "null" || tram.danhsachnode == null) continue;
+                            $dsnode = jQuery.parseJSON(tram.danhsachnode);
+
+                            for (j = 0; j < $dsnode.length; j++) {
+                                newTram($dsnode[j].lat, $dsnode[j].lng, 'node', 1);
+                            }
+                        }
+                        updateline();
+                        //$('#thongbao').html('thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    },
+                    error: function (data) {
+                        alert('error!' + data);
+                    }
+                });
+        }
+
+        function closeListBus() {
+            $('#chitiettuyen').animate({ width: "0%" }, 500);
+            $('#mapid').animate({ width: "100%" }, 500);
+            $('#showListBus').html('<img src="icon/clickHere.png" width ="35px" onclick="openListBus()" />');
+        }
+
+        function openListBus() {
+            $('#chitiettuyen').animate({ width: "30%" }, 500);
+            $('#mapid').animate({ width: "70%" }, 500);
+            $('#showListBus').html('<img src="icon/clickHere.png" width ="35px" onclick="closeListBus()" />');
+        }
+        function showMarker(index) {
+            parseInt(index);
+            dsMaker[index].openPopup();
+            map.setView([dsMaker[index]._latlng.lat, dsMaker[index]._latlng.lng], 14);
+        }
+    </script>
+    <script type="text/javascript">
+        $(window).bind("load", function () {
+            getNode();
+        });
+    </script>
+</body>
+
+</html>
